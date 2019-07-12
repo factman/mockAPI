@@ -1,11 +1,10 @@
-const jest = require("jest");
 const request = require("supertest");
 
 const app = require("../app");
 
 describe('Test the route path', () => {
     test("It should response the GET method to display Welcome API", async () => {
-        const res = aqa
+        const res = await request(app).get
     });
 });
 
