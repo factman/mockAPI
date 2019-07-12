@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const connectDb = {
     connection: null,
     connect: (dbName = "Mock") => {
-        mongoose.connect(`mongodb://localhost:27017/${dbName}`, {useNewUrlParser: true, useCreateIndex: true});
+        mongoose.connect(`mongodb://localhost:27017/${dbName}`, { useNewUrlParser: true, useCreateIndex: true });
         this.connection = mongoose.connection;
-        connection.on("error", (err) => {
+        this.connection.on("error", (err) => {
             console.error("Connecton Error", err);
         });
-        connection.once("open", () =>{
+        this.connection.once("open", () => {
             console.log("MongoDB connection established successfully!");
         });
     },
@@ -16,9 +16,9 @@ const connectDb = {
         this.connection.disconnect(() => {
             console.log("MongoDB connection Disconnected");
         });
-        
+
     },
 };
-    
+
 
 module.exports = connectDb;
