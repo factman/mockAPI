@@ -1,5 +1,5 @@
 "use strict";
-const Authentication = require('../models/auth-models');
+const User = require('../models/auth-models');
 const validation = require('../utilities/validations');
 const dotenv = require('dotenv');
 
@@ -11,7 +11,7 @@ const authController = {
             if(erradmindata) {
                 return next(erradmindata);
             }
-            const admin = new Authentication({
+            const admin = new User({
                 name: admindata.name,
                 email: admindata.email,
                 password: admindata.password
@@ -44,7 +44,7 @@ const authController = {
             if(erruserdata) {
                 return next(erruserdata);
             }
-            const user = new Authentication({
+            const user = new User({
                 name: userdata.name,
                 email: userdata.email,
                 password: userdata.password

@@ -2,7 +2,7 @@
 
 const Teams = require("../models/teams-models");
 const Fixtures = require("../models/fixtures-models");
-const Authentication = require("../models/auth-models");
+const User = require("../models/auth-models");
 //const validations = require("../utilities/validations");
 
 /**
@@ -38,7 +38,7 @@ const apiController = {
      * @Description Reset Authentication Collection 
      */
     resetAuthCollection: (req, res, next)=> {
-        Authentication.collection.drop()
+        User.collection.drop()
             .then((result) => {
                 this.restOuput("Authentication", result, res);
             })

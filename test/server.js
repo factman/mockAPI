@@ -4,7 +4,9 @@ const request = require("supertest");
 const app = require("../app");
 
 describe('Test the route path', () => {
-    test("")
+    test("It should response the GET method to display Welcome API", async () => {
+        const res = aqa
+    });
 });
 
 //Raising the app to listen to port
