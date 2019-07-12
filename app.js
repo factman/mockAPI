@@ -5,10 +5,8 @@ const app = express();
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const morgan = require("morgan");
-const jest = require("jest");
 
 const apiRouter = require('./routes/apiRouter');
 const teamsRouter = require('./routes/teamsRouter');
