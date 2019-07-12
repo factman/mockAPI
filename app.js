@@ -15,6 +15,7 @@ const teamsRouter = require('./routes/teamsRouter');
 const fixturesRouter = require('./routes/fixturesRouter');
 const authRoutes = require('./routes/authRoutes');
 const apiError = require("./utilities/error");
+const connectDb = require("./connection/connectdb");
 
 dotenv.config();
 
@@ -23,16 +24,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/Mock");
-const connection = mongoose.connection;
-
-connection.on("error", (err) => {
-    console.error("Connecton Error", err);
-});
-
-connection.once("open", () =>{
-    console.log("MongoDB connection established successfully!");
-});
+connectDb.connect();
 
 app.use('/api', apiRouter);
 app.use('/api', authRoutes);
@@ -51,5 +43,12 @@ app.use((req, res, next) => {
  * @description Error handler.
  */
 app.use(apiError.handleErrors);
+
+//Raising the app to listen to port
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log("Express server is running on port ", port);
+});
 
 module.exports = app;
