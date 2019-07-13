@@ -17,15 +17,15 @@ const apiController = {
         });
     },
 
-    restOuput: (dbName, result, res) => {
+    resetOutput: (dbName, result, res) => {
         if(result) {
-            res.json({
+         return res.json({
                 success: true,
                 data: result,
                 message: `${dbName} Database reset successfully`
             });
         } else {
-            res.json({
+         return res.json({
                 success: false,
                 data: result,
                 message: `${dbName} Database reset failed`
@@ -40,7 +40,7 @@ const apiController = {
     resetAuthCollection: (req, res, next)=> {
         User.collection.drop()
             .then((result) => {
-                this.restOuput("Authentication", result, res);
+                this.resetOutput("User", result, res);
             })
             .catch(next);
     },
@@ -51,7 +51,7 @@ const apiController = {
     resetTeamsCollection: (req, res, next)=> {
         Teams.collection.drop()
             .then((result) => {
-                this.restOuput("Teams", result, res);
+                this.restOutput("Teams", result, res);
             })
             .catch(next);
     },
@@ -62,7 +62,15 @@ const apiController = {
     resetFixturesCollection: (req, res, next)=> {
         Fixtures.collection.drop()
             .then((result) => {
-                this.restOuput("Fixtures", result, res);
+                this.resetOutput("Fixtures", result, res);
+            })
+            .catch(next);
+    },
+
+    resetAllDatabase: (req, res, next) => {
+        User.db.dropDatabase()
+            .then((result) => {
+                this.resetOutput("All", result, res);
             })
             .catch(next);
     }

@@ -17,21 +17,21 @@ teamsRouter.get('/', teamsController.getTeams);
 teamsRouter.get('/:tID', teamsController.getTeamById);
 
 /**
-* POST: /teams
+* POST: /teams/create
 * Route for creating teams
 */ 
 
-teamsRouter.post('/', teamsController.createTeam);
+teamsRouter.post('/create', teamsController.createTeam);
 
 /**
-* POST: /teams/:tID
+* PUT: /teams/edit/:tID
 * Edit a specific team
 */ 
 
-teamsRouter.post('/edit/:tID', teamsController.editTeam);
+teamsRouter.put('/edit/:tID', teamsController.editTeam);
 
 /**
-* DELETE: /teams/:tID
+* DELETE: /teams/delete/:tID
 * Delete a specific team
 */ 
 

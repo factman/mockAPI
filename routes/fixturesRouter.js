@@ -10,28 +10,28 @@ const fixturesController = require('../controllers/fixturesController');
 fixturesRouter.get('/', fixturesController.getFixtures);
 
 /**
-* GET: /fixtures/:tID
+* GET: /fixtures/:fID
 * Route for specific fixture
 */
 
-fixturesRouter.get('/:tID', fixturesController.getFixtureById);
+fixturesRouter.get('/:fID', fixturesController.getFixtureById);
 
 /**
 * POST: /fixtures
 * Route for creating fixtures
 */ 
 
-fixturesRouter.post('/', fixturesController.createFixture);
+fixturesRouter.post('/create', fixturesController.createFixture);
 
 /**
-* POST: /fixtures/:tID
+* POST: /fixtures/:fID
 * Edit a specific fixture
 */ 
 
-fixturesRouter.post('/edit/:tID', fixturesController.editFixture);
+fixturesRouter.put('/edit/:fID', fixturesController.editFixture);
 
 /**
-* DELETE: /fixtures/:tID
+* DELETE: /fixtures/:fID
 * Delete a specific fixture
 */ 
 

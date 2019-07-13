@@ -9,19 +9,24 @@ const apiRouter = express.Router();
 apiRouter.get("/", apiController.welcome);
 
 /** 
- * POST /api/admin
- * @description Reset all Admin Collection.
+ * POST /api/reset/admin
+ * @description Reset all User Collection.
  */
-apiRouter.post('/admin/reset', apiController.resetAuthCollection);
+apiRouter.post('/reset/user', apiController.resetAuthCollection);
 /** 
- * POST /api/teams
+ * POST /api/reset/teams
  * @description Reset all Teams Collection.
  */
-apiRouter.post('/teams/reset', apiController.resetTeamsCollection);
+apiRouter.post('/reset/teams', apiController.resetTeamsCollection);
 /** 
- * POST /api/fixtures
+ * POST /api/reset/fixtures
  * @description Reset all Fixtures Collection.
  */
-apiRouter.post('/fixures/reset', apiController.resetFixturesCollection);
+apiRouter.post('/reset/fixtures', apiController.resetFixturesCollection);
+/** 
+ * POST /api/reset/all
+ * @description Reset all Database.
+ */
+apiRouter.post('/reset/all', apiController.resetAllDatabase);
 
 module.exports = apiRouter;
